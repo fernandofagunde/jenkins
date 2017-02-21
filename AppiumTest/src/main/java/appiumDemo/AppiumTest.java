@@ -26,23 +26,25 @@ public class AppiumTest {
 	@Before
 	public void inicializar() {
 		//definindo caminho para o aplicativo a ser testado.
+		File dirAplicativo = new File("c:\\TrianguloApp");
+		File arqAplicativo = new File(dirAplicativo, "TrianguloApp.apk");
+		capacidade = new DesiredCapabilities();
+		//definindo a plataforma que será testada.
+		capacidade.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+		//definindo o dispositivo que será testado.
+		//capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "0018903858");
+		capacidade.setCapability("udid", "3300f86e4b43822b");
+		capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "samsung");
+	//	capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Simulator");
+		//definindo o aplicativo a ser testado.
+		capacidade.setCapability(MobileCapabilityType.APP, arqAplicativo.getAbsolutePath());
 		
 
 	}
 
 	@Test
 	public void cenarioPositivo() throws Exception {
-		//definindo caminho para o aplicativo a ser testado.
-				File dirAplicativo = new File("c:\\TrianguloApp");
-				File arqAplicativo = new File(dirAplicativo, "TrianguloApp.apk");
-				capacidade = new DesiredCapabilities();
-				//definindo a plataforma que será testada.
-				capacidade.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-				//definindo o dispositivo que será testado.
-				capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "0018903858");
-				//capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Simulator");
-				//definindo o aplicativo a ser testado.
-				capacidade.setCapability(MobileCapabilityType.APP, arqAplicativo.getAbsolutePath());
+		
 				
 				
 				
@@ -65,19 +67,9 @@ public class AppiumTest {
 		FileUtils.copyFile(scrFile, new File("c:\\Temp\\cenarioPosito.png"));
 	}
 
-	@Test
+	
 	public void cenarioNegativo() throws Exception {
-		//definindo caminho para o aplicativo a ser testado.
-				File dirAplicativo = new File("c:\\TrianguloApp");
-				File arqAplicativo = new File(dirAplicativo, "TrianguloApp.apk");
-				capacidade = new DesiredCapabilities();
-				//definindo a plataforma que será testada.
-				capacidade.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-				//definindo o dispositivo que será testado.
-				//capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "0018903858");
-				capacidade.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Simulator");
-				//definindo o aplicativo a ser testado.
-				capacidade.setCapability(MobileCapabilityType.APP, arqAplicativo.getAbsolutePath());
+
 		
 		
 		//abrindo conexão com servidor.
