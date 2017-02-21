@@ -7,7 +7,11 @@ public class Codigo {
 	
 
 	
+	///
 	
+	public void teste(){
+		
+	}
 	
 	//comitando.........
 }
