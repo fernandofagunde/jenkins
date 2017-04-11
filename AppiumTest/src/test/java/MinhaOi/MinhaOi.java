@@ -1,4 +1,4 @@
-package appiumDemo;
+package MinhaOi;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,7 +19,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 
-public class AppiumTest {
+public class MinhaOi {
 	static WebDriver driverChrome;
 	static WebDriver driverIE;
 	static WebDriver driverFireFox;
@@ -43,7 +43,7 @@ public class AppiumTest {
 		capacidade.setCapability(MobileCapabilityType.APP, arqAplicativo.getAbsolutePath());
 		driverAndroid = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capacidade);
 	}
-      
+
 	public static void setUpChrome() throws Exception {
 
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -144,16 +144,16 @@ public class AppiumTest {
 		
 	}
 
-	
+	@Test
 	public void fluxoChrome() throws Exception {
 
-//		setUpChrome();
-	//	login(driverChrome);
-//		comprarPacotesChrome();
-	//	driverChrome.quit();
+		setUpChrome();
+		login(driverChrome);
+		comprarPacotesChrome();
+		driverChrome.quit();
 	}
 
-	//@Test
+	@Test
 	public  void fluxoIE() throws Exception {
 
 		setUpIE();
@@ -170,7 +170,7 @@ public class AppiumTest {
 		login(driverFireFox);
 
 	}
-	@Test
+	
 	public void fluxoAndroid() throws MalformedURLException, InterruptedException{
 		
 		setUpAndroid();
@@ -197,5 +197,14 @@ public class AppiumTest {
 	}
 
 
+	public static void main(String[] args) throws Exception {
+		//testLoginChrome();
+		//testLoginIE();
+		//Thread.sleep(120000);
+		//comprarPacotesIE();
+	
+		
+
+	}
 
 }
